@@ -1,0 +1,820 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package centre_libraly;
+
+import Java_class.BooksManage;
+import Java_class.function_java;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.BorderFactory;
+import java.sql.ResultSet;
+import javax.swing.JButton;
+import javax.swing.border.Border;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+/**
+ *
+ * @author HP
+ */
+public class DasboardForm extends javax.swing.JFrame {
+
+    
+    Border buttonBorder1 = BorderFactory.createMatteBorder(2, 2, 2, 2, Color.white);
+    Border buttonBorder0 = BorderFactory.createMatteBorder(1, 1,1,1, new Color(0,204,204));
+    /**
+     * Creates new form DasboardForm
+     */
+    function_java func = new function_java();
+    
+    JLabel[] label_tap = new JLabel[12];
+    
+    BooksManage book = new BooksManage();
+    public DasboardForm() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        
+        Border panelHeader = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.white);
+        jPanel3.setBorder(panelHeader);
+        
+        Border panel_1_header1 = BorderFactory.createMatteBorder(0, 0, 3, 0, Color.white);
+        panel_1_header.setBorder(panel_1_header1);
+        
+        Border panel_2_header2 = BorderFactory.createMatteBorder(0, 0, 3, 0, Color.white);
+        panel_2_header.setBorder(panel_2_header2);
+        
+        Border panel_3_header3 = BorderFactory.createMatteBorder(0, 0, 3, 0, Color.white);
+        panel_3_header.setBorder(panel_3_header3);
+        Border panel_4_header4 = BorderFactory.createMatteBorder(0, 0, 3, 0, Color.white);
+        panel_4_header.setBorder(panel_4_header4);
+        
+        function_java func = new function_java();
+        func.displayImage(dasboard_logo.getWidth(), dasboard_logo.getHeight(), "image/libraryIcon.jpg", dasboard_logo);
+        func.displayImage(50, 50, "image/open-book.png", jLabel_book);
+        func.displayImage(50, 50, "image/profile .png", jLabel_member_title);
+        func.displayImage(50, 50, "image/writer.png", jLabel_Author);
+        func.displayImage(invalidate_book.getWidth(), invalidate_book.getHeight(), "image/replay-arrow.png", invalidate_book);
+        func.displayImage(invalidate_cover.getWidth(), invalidate_cover.getHeight(), "image/replay-arrow.png", invalidate_cover);
+        func.displayImage(invalidate_auth.getWidth(), invalidate_auth.getHeight(), "image/replay-arrow.png", invalidate_auth);
+        addBorder();
+        // the hover effect
+        buttonHoverEffect();
+        
+        //total of book that there are in the libraly
+        
+        //func.displayImage(dasboard_logo.getWidth(),dasboard_logo.getHeight(), "/Java_class/Image/libraryIcon.jpg", dasboard_logo);
+        
+        //display count
+        displayCount();
+        
+        //display th lated book available
+        label_tap[0] = jLabel_image1;
+        label_tap[1] = jLabel_image2;
+        label_tap[2] = jLabel_image3;
+        label_tap[3] = jLabel_image4;
+        label_tap[4] = jLabel_image5;
+        label_tap[5] = jLabel_image6;
+        label_tap[6] = jLabel_image7;
+        label_tap[7] = jLabel_image8;
+        label_tap[8] = jLabel_image9;
+        label_tap[9] = jLabel_image10;
+        label_tap[10] = jLabel_image11;
+        label_tap[11] = jLabel_image12;
+        BooksManage.displayBookCover(label_tap);
+    }
+    
+    public void addBorder(){
+        Component[] comps = Jpanel_menu.getComponents();
+        for(Component comp : comps){
+            // check if the component is button
+            if(comp instanceof JButton){
+                JButton button = (JButton) comp;
+                // add the action we want to the button
+                
+                     button.setBorder(buttonBorder0);
+            }   
+        }
+    }
+        
+    public void buttonHoverEffect(){
+        Component[] comps = Jpanel_menu.getComponents();
+        for(Component comp : comps){
+            // check if the component is button
+            if(comp instanceof JButton){
+                JButton button = (JButton) comp;
+                // add the action we want to the button
+                button.addMouseListener(new MouseAdapter(){
+                    
+                 public void MouseEntered(MouseEvent evt){
+                     button.setBorder(buttonBorder1);
+                 }
+                 public void MouseExit(MouseEvent evt){
+                     button.setBorder(buttonBorder0);
+                 }
+                });
+            }
+        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        Jpanel_menu = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        dasboard_logo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        add_member_button = new javax.swing.JButton();
+        edit_member_button = new javax.swing.JButton();
+        Edit_member_button = new javax.swing.JButton();
+        manage_genres = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        Mannage_authors = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        add_Book = new javax.swing.JButton();
+        add_member_button2 = new javax.swing.JButton();
+        add_member_button3 = new javax.swing.JButton();
+        add_member_button4 = new javax.swing.JButton();
+        add_member_button5 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        panel_4_header = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        invalidate_cover = new javax.swing.JLabel();
+        jLabel_image1 = new javax.swing.JLabel();
+        jLabel_image4 = new javax.swing.JLabel();
+        jLabel_image2 = new javax.swing.JLabel();
+        jLabel_image6 = new javax.swing.JLabel();
+        jLabel_image3 = new javax.swing.JLabel();
+        jLabel_image5 = new javax.swing.JLabel();
+        jLabel_image12 = new javax.swing.JLabel();
+        jLabel_image11 = new javax.swing.JLabel();
+        jLabel_image10 = new javax.swing.JLabel();
+        jLabel_image9 = new javax.swing.JLabel();
+        jLabel_image8 = new javax.swing.JLabel();
+        jLabel_image7 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        panel_2_header = new javax.swing.JPanel();
+        jLabel_member_title = new javax.swing.JLabel();
+        invalidate_Member = new javax.swing.JLabel();
+        jLabel_Member = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        panel_3_header = new javax.swing.JPanel();
+        jLabel_Author = new javax.swing.JLabel();
+        invalidate_auth = new javax.swing.JLabel();
+        jLabel_Authors = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        panel_1_header = new javax.swing.JPanel();
+        jLabel_book = new javax.swing.JLabel();
+        invalidate_book = new javax.swing.JLabel();
+        jLabel_bookCount = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Jpanel_menu.setBackground(new java.awt.Color(0, 204, 204));
+        Jpanel_menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("noul's libraly");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(dasboard_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dasboard_logo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(40, 40, 40)))
+                .addGap(19, 19, 19))
+        );
+
+        Jpanel_menu.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Defago Noto Sans", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("MEMBER");
+        Jpanel_menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 352, 110, 48));
+
+        add_member_button.setBackground(new java.awt.Color(255, 255, 255));
+        add_member_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add_member_button.setText("Add Member");
+        add_member_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_member_buttonActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(add_member_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 406, 300, 30));
+
+        edit_member_button.setBackground(new java.awt.Color(255, 255, 255));
+        edit_member_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        edit_member_button.setText("Edit Member");
+        edit_member_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_member_buttonActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(edit_member_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 300, 27));
+
+        Edit_member_button.setBackground(new java.awt.Color(255, 255, 255));
+        Edit_member_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Edit_member_button.setText("Search and Delete");
+        Edit_member_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Edit_member_buttonActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(Edit_member_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 300, 30));
+
+        manage_genres.setBackground(new java.awt.Color(255, 255, 255));
+        manage_genres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        manage_genres.setText("Manage Genres");
+        manage_genres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manage_genresActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(manage_genres, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 216, 300, 30));
+
+        jLabel11.setFont(new java.awt.Font("Defago Noto Sans", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("AUTHOR");
+        Jpanel_menu.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 257, 100, 48));
+
+        jLabel12.setFont(new java.awt.Font("Defago Noto Sans", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("GENRE");
+        Jpanel_menu.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 162, 100, 48));
+
+        Mannage_authors.setBackground(new java.awt.Color(255, 255, 255));
+        Mannage_authors.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Mannage_authors.setText("Manage Authors");
+        Mannage_authors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mannage_authorsActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(Mannage_authors, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 311, 300, 30));
+
+        jLabel13.setFont(new java.awt.Font("Defago Noto Sans", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("BOOK MANAGEMENT");
+        Jpanel_menu.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 240, 48));
+
+        add_Book.setBackground(new java.awt.Color(255, 255, 255));
+        add_Book.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add_Book.setText("Add Books");
+        add_Book.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_BookActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(add_Book, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 300, 30));
+
+        add_member_button2.setBackground(new java.awt.Color(255, 255, 255));
+        add_member_button2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add_member_button2.setText("Edit Book");
+        add_member_button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_member_button2ActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(add_member_button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 300, 30));
+
+        add_member_button3.setBackground(new java.awt.Color(255, 255, 255));
+        add_member_button3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add_member_button3.setText("Return");
+        add_member_button3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_member_button3ActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(add_member_button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 720, 120, 30));
+
+        add_member_button4.setBackground(new java.awt.Color(255, 255, 255));
+        add_member_button4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add_member_button4.setText("Book List");
+        add_member_button4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_member_button4ActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(add_member_button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, 300, 30));
+
+        add_member_button5.setBackground(new java.awt.Color(255, 255, 255));
+        add_member_button5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add_member_button5.setText("Borrow");
+        add_member_button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_member_button5ActionPerformed(evt);
+            }
+        });
+        Jpanel_menu.add(add_member_button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 720, 120, 30));
+
+        jPanel1.add(Jpanel_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 300, 790));
+
+        jPanel4.setBackground(new java.awt.Color(0, 204, 204));
+
+        panel_4_header.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLabel10.setFont(new java.awt.Font("Defago Noto Sans", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Lated Book Added");
+
+        invalidate_cover.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                invalidate_coverMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_4_headerLayout = new javax.swing.GroupLayout(panel_4_header);
+        panel_4_header.setLayout(panel_4_headerLayout);
+        panel_4_headerLayout.setHorizontalGroup(
+            panel_4_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_4_headerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(invalidate_cover, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+        );
+        panel_4_headerLayout.setVerticalGroup(
+            panel_4_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_4_headerLayout.createSequentialGroup()
+                .addGroup(panel_4_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(invalidate_cover, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 13, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_4_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(73, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel_image1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel_image2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel_image3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel_image4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel_image5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel_image6, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel_image7, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel_image8, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel_image9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel_image10, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel_image11, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel_image12, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(70, 70, 70))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(panel_4_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel_image4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_image3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_image1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_image2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel_image5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel_image6, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel_image10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_image9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_image7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_image8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel_image11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel_image12, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 1170, 490));
+
+        jPanel5.setBackground(new java.awt.Color(0, 204, 204));
+
+        panel_2_header.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLabel_member_title.setFont(new java.awt.Font("Defago Noto Sans", 1, 24)); // NOI18N
+        jLabel_member_title.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel_member_title.setText("Member");
+
+        invalidate_Member.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                invalidate_MemberMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_2_headerLayout = new javax.swing.GroupLayout(panel_2_header);
+        panel_2_header.setLayout(panel_2_headerLayout);
+        panel_2_headerLayout.setHorizontalGroup(
+            panel_2_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_2_headerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_member_title)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(invalidate_Member, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        panel_2_headerLayout.setVerticalGroup(
+            panel_2_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_2_headerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_2_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel_2_headerLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(invalidate_Member, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_member_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jLabel_Member.setFont(new java.awt.Font("Defago Noto Sans", 1, 48)); // NOI18N
+        jLabel_Member.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Member.setText("0000000");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_2_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel_Member, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(panel_2_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jLabel_Member, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 340, 240));
+
+        jPanel6.setBackground(new java.awt.Color(102, 255, 204));
+
+        panel_3_header.setBackground(new java.awt.Color(0, 204, 102));
+
+        jLabel_Author.setFont(new java.awt.Font("Defago Noto Sans", 1, 24)); // NOI18N
+        jLabel_Author.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel_Author.setText("Authors");
+
+        invalidate_auth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                invalidate_authMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_3_headerLayout = new javax.swing.GroupLayout(panel_3_header);
+        panel_3_header.setLayout(panel_3_headerLayout);
+        panel_3_headerLayout.setHorizontalGroup(
+            panel_3_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_3_headerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_Author)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(invalidate_auth, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        panel_3_headerLayout.setVerticalGroup(
+            panel_3_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_3_headerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_3_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_Author, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panel_3_headerLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(invalidate_auth, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        jLabel_Authors.setFont(new java.awt.Font("Defago Noto Sans", 1, 48)); // NOI18N
+        jLabel_Authors.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Authors.setText("0000000");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_3_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel_Authors, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(panel_3_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jLabel_Authors, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 84, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 0, 320, 240));
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 153));
+
+        panel_1_header.setBackground(new java.awt.Color(255, 255, 0));
+
+        jLabel_book.setFont(new java.awt.Font("Defago Noto Sans", 1, 24)); // NOI18N
+        jLabel_book.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel_book.setText("Books");
+        jLabel_book.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        invalidate_book.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                invalidate_bookMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_1_headerLayout = new javax.swing.GroupLayout(panel_1_header);
+        panel_1_header.setLayout(panel_1_headerLayout);
+        panel_1_headerLayout.setHorizontalGroup(
+            panel_1_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_1_headerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_book)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(invalidate_book, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        panel_1_headerLayout.setVerticalGroup(
+            panel_1_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_1_headerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_1_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_book, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panel_1_headerLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(invalidate_book, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        jLabel_bookCount.setFont(new java.awt.Font("Defago Noto Sans", 1, 48)); // NOI18N
+        jLabel_bookCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_bookCount.setText("0000000");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_1_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel_bookCount, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(panel_1_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jLabel_bookCount, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 330, 240));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1527, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void manage_genresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manage_genresActionPerformed
+        // TODO add your handling code here:
+        Manage_Gemres genres_M = new Manage_Gemres();
+        genres_M.setVisible(true);
+    }//GEN-LAST:event_manage_genresActionPerformed
+
+    private void Mannage_authorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mannage_authorsActionPerformed
+        // TODO add your handling code here:
+        Mannage_Authors mngAuthors = new Mannage_Authors();
+        mngAuthors.setVisible(true);
+    }//GEN-LAST:event_Mannage_authorsActionPerformed
+
+    private void add_member_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_member_buttonActionPerformed
+        // TODO add your handling code here:
+        memberForm addMember = new memberForm();
+        addMember.setVisible(true);
+    }//GEN-LAST:event_add_member_buttonActionPerformed
+
+    private void edit_member_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_member_buttonActionPerformed
+        // TODO add your handling code here:
+        EditMemberForm editForm = new EditMemberForm();
+        editForm.setVisible(true);
+    }//GEN-LAST:event_edit_member_buttonActionPerformed
+
+    private void add_BookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_BookActionPerformed
+        // TODO add your handling code here:
+        AddBookForm bookForm = new AddBookForm();
+        bookForm.setVisible(true);
+    }//GEN-LAST:event_add_BookActionPerformed
+
+    private void add_member_button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_member_button2ActionPerformed
+        // TODO add your handling code here:
+        EditBookForm editForm = new EditBookForm();
+        editForm.setVisible(true);
+    }//GEN-LAST:event_add_member_button2ActionPerformed
+
+    private void add_member_button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_member_button3ActionPerformed
+        // TODO add your handling code here:
+        ReturnForm returnform = new ReturnForm();
+        returnform.setVisible(true);
+    }//GEN-LAST:event_add_member_button3ActionPerformed
+
+    private void add_member_button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_member_button4ActionPerformed
+        // TODO add your handling code here:
+         bookList_and_remove booklist = new bookList_and_remove();
+        booklist.setVisible(true);
+    }//GEN-LAST:event_add_member_button4ActionPerformed
+
+    private void add_member_button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_member_button5ActionPerformed
+        // TODO add your handling code here:
+       BorrowForm borrow = new BorrowForm();
+       borrow.setVisible(true);
+    }//GEN-LAST:event_add_member_button5ActionPerformed
+
+    private void Edit_member_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_member_buttonActionPerformed
+        // TODO add your handling code here:
+        ListForm deleteform = new ListForm();
+        deleteform.setVisible(true);
+    }//GEN-LAST:event_Edit_member_buttonActionPerformed
+
+    private void invalidate_bookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_invalidate_bookMouseClicked
+        // TODO add your handling code here:
+        displayCount();
+    }//GEN-LAST:event_invalidate_bookMouseClicked
+
+    private void invalidate_coverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_invalidate_coverMouseClicked
+        // TODO add your handling code here:
+        BooksManage.displayBookCover(label_tap);
+    }//GEN-LAST:event_invalidate_coverMouseClicked
+
+    private void invalidate_authMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_invalidate_authMouseClicked
+        // TODO add your handling code here:
+        displayCount();
+    }//GEN-LAST:event_invalidate_authMouseClicked
+
+    private void invalidate_MemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_invalidate_MemberMouseClicked
+        // TODO add your handling code here:
+        displayCount();
+    }//GEN-LAST:event_invalidate_MemberMouseClicked
+
+    public void displayCount(){ 
+
+            int total = func.countData("Books");
+            jLabel_bookCount.setText(String.valueOf(total));
+            
+            int Member_total = func.countData("Member");
+            jLabel_Member.setText(String.valueOf(Member_total));
+            
+            int Auth_total = func.countData("Authors");
+            jLabel_Authors.setText(String.valueOf(Auth_total)); 
+        
+    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(DasboardForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(DasboardForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(DasboardForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(DasboardForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new DasboardForm().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Edit_member_button;
+    private javax.swing.JPanel Jpanel_menu;
+    private javax.swing.JButton Mannage_authors;
+    private javax.swing.JButton add_Book;
+    private javax.swing.JButton add_member_button;
+    private javax.swing.JButton add_member_button2;
+    private javax.swing.JButton add_member_button3;
+    private javax.swing.JButton add_member_button4;
+    private javax.swing.JButton add_member_button5;
+    private javax.swing.JLabel dasboard_logo;
+    private javax.swing.JButton edit_member_button;
+    private javax.swing.JLabel invalidate_Member;
+    private javax.swing.JLabel invalidate_auth;
+    private javax.swing.JLabel invalidate_book;
+    private javax.swing.JLabel invalidate_cover;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel_Author;
+    private javax.swing.JLabel jLabel_Authors;
+    private javax.swing.JLabel jLabel_Member;
+    private javax.swing.JLabel jLabel_book;
+    private javax.swing.JLabel jLabel_bookCount;
+    private javax.swing.JLabel jLabel_image1;
+    private javax.swing.JLabel jLabel_image10;
+    private javax.swing.JLabel jLabel_image11;
+    private javax.swing.JLabel jLabel_image12;
+    private javax.swing.JLabel jLabel_image2;
+    private javax.swing.JLabel jLabel_image3;
+    private javax.swing.JLabel jLabel_image4;
+    private javax.swing.JLabel jLabel_image5;
+    private javax.swing.JLabel jLabel_image6;
+    private javax.swing.JLabel jLabel_image7;
+    private javax.swing.JLabel jLabel_image8;
+    private javax.swing.JLabel jLabel_image9;
+    private javax.swing.JLabel jLabel_member_title;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JButton manage_genres;
+    private javax.swing.JPanel panel_1_header;
+    private javax.swing.JPanel panel_2_header;
+    private javax.swing.JPanel panel_3_header;
+    private javax.swing.JPanel panel_4_header;
+    // End of variables declaration//GEN-END:variables
+}
